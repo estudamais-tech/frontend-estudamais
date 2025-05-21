@@ -19,7 +19,7 @@ const ChatLuiza = () => {
           variants={fadeInUp}
         >
           <div className="flex justify-center mb-6">
-            <img  alt="Avatar da Luiza, a IA da EstudaMais.tech, com fundo escuro" className="w-32 h-32 rounded-full border-4 border-estudamais-yellow shadow-lg" src="/images/luiza-w-shades.png" />
+            <img  alt="Avatar da Luiza, a IA da EstudaMais.tech, com fundo escuro" className="w-32 h-32 rounded-full border-4 border-estudamais-yellow shadow-lg" src="/images/luiza2.jpeg" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-estudamais-white">
             Conheça Luiza, sua Guia Inteligente!
