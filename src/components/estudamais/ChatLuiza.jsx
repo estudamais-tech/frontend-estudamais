@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { MessageCircle, ArrowRight } from 'lucide-react';
 
 const ChatLuiza = () => {
@@ -35,15 +33,16 @@ const ChatLuiza = () => {
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button
-              onClick={() => { /* Lógica para abrir chat com Luiza */ }}
-              className="bg-estudamais-yellow text-estudamais-green-dark hover:bg-estudamais-yellow/90 px-10 py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform"
-              size="lg"
+            <a
+              href="https://estudamais.tamanduas.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-estudamais-yellow text-estudamais-blue hover:bg-estudamais-yellow/90 px-10 py-4 text-lg rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform"
             >
               <MessageCircle className="mr-3 h-6 w-6" />
               Falar com Luiza Agora
               <ArrowRight className="ml-3 h-6 w-6" />
-            </Button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
