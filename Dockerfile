@@ -1,7 +1,7 @@
 # Dockerfile
-FROM nginx:alpine
+FROM nginx:alpine 
 
-# Limpa a config padrão
+# Limpa a config padrão #fake commit to run the pipeline
 RUN rm -rf /etc/nginx/conf.d/*
 
 # Copia a config personalizada para SPA (fallback de rotas)
