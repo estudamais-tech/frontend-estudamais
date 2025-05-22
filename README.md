@@ -2,7 +2,7 @@
 
 **Interface de usuário para a plataforma EstudaMais, focada em guiar estudantes através do GitHub Student Pack e planejamento de carreira com a ajuda da Luiza, nossa IA assistente.**
 
-[![Deploy to VPS](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml/badge.svg)](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml)
+[![Deploy to VPS](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml/badge.svg)](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml) [![CI EstudaMais Frontend](https://github.com/92username/frontend-estudamais/actions/workflows/ci.yml/badge.svg)](https://github.com/92username/frontend-estudamais/actions/workflows/ci.yml)
 
 ![Docker stats](https://img.shields.io/badge/Docker%20/%20stats-blue?logo=docker) ![Docker Image Size](https://img.shields.io/docker/image-size/user92/frontend-estudamais/latest)
 ![Docker Pulls](https://img.shields.io/docker/pulls/user92/frontend-estudamais)
