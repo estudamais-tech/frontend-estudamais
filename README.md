@@ -4,6 +4,9 @@
 
 [![Deploy to VPS](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml/badge.svg)](https://github.com/92username/frontend-estudamais/actions/workflows/deploy.yml)
 
+![Docker stats](https://img.shields.io/badge/Docker%20/%20stats-blue?logo=docker) ![Docker Image Size](https://img.shields.io/docker/image-size/user92/frontend-estudamais/latest)
+![Docker Pulls](https://img.shields.io/docker/pulls/user92/frontend-estudamais)
+
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
