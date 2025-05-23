@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
 import Header from '@/components/estudamais/Header';
@@ -10,6 +10,22 @@ import Benefits from '@/components/estudamais/Benefits';
 import ChatLuiza from '@/components/estudamais/ChatLuiza';
 import Footer from '@/components/estudamais/Footer';
 import ScrollToTop from '@/components/estudamais/ScrollToTop';
+import LuizaPage from '@/pages/LuizaPage'; // Import LuizaPage
+
+// Define HomePage component
+const HomePage = () => (
+  <>
+    <Header />
+    <main>
+      <Hero />
+      <AboutPlatform />
+      <Benefits />
+      <ChatLuiza />
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </>
+);
 
 function App() {
   const { toast } = useToast();
@@ -29,27 +45,24 @@ function App() {
   }, [toast]);
 
   return (
-    <AnimatePresence>
-      {isLoaded && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="min-h-screen flex flex-col bg-background text-foreground font-poppins"
-        >
-          <Header />
-          <main>
-            <Hero />
-            <AboutPlatform />
-            <Benefits />
-            <ChatLuiza />
-          </main>
-          <Footer />
-          <ScrollToTop />
-          <Toaster />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <BrowserRouter>
+      <AnimatePresence>
+        {isLoaded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="min-h-screen flex flex-col bg-background text-foreground font-poppins"
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/luiza" element={<LuizaPage />} />
+            </Routes>
+            <Toaster />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </BrowserRouter>
   );
 }
 

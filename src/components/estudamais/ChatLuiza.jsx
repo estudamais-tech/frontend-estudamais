@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ChatLuiza = () => {
   const fadeInUp = {
@@ -33,16 +34,14 @@ const ChatLuiza = () => {
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
           >
-            <a
-              href="https://estudamais.tamanduas.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/luiza"
               className="inline-flex items-center justify-center bg-estudamais-yellow text-estudamais-blue hover:bg-estudamais-yellow/90 px-10 py-4 text-lg rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform"
             >
               <MessageCircle className="mr-3 h-6 w-6" />
               Falar com Luiza Agora
               <ArrowRight className="ml-3 h-6 w-6" />
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
