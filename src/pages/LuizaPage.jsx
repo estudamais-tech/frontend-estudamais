@@ -14,7 +14,11 @@ function LuizaPage() {
     setInput("");
 
     try {
-      const resposta = await fetch("http://localhost:8000/chat", {
+      const BASE_URL = import.meta.env.PROD
+        ? 'https://estudamais.tech/luiza'
+        : 'http://localhost:8000';
+        
+      const resposta = await fetch(`${BASE_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
