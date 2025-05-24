@@ -14,17 +14,18 @@ function LuizaPage() {
     setInput("");
 
     try {
-      const resposta = await fetch("https://luiza.estudamais.tech/api", {
+      const resposta = await fetch("http://localhost:8000/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pergunta: input }),
+        body: JSON.stringify({ message: input }),
       });
 
+      if (!resposta.ok) throw new Error("Erro na API");
       const data = await resposta.json();
 
       setMensagens((prev) => [
         ...prev,
-        { autor: "luiza", texto: data.resposta || "Tive um problema aqui 😅" },
+        { autor: "luiza", texto: data.answer || "Tive um problema aqui 😅" },
       ]);
     } catch {
       setMensagens((prev) => [
