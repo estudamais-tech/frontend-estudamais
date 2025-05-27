@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   estudamais_frontend:
-    build: .
+    image: user92/frontend-estudamais:latest
     ports:
       - "8503:80"
     restart: unless-stopped
