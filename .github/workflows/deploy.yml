@@ -33,12 +33,12 @@ jobs:
             npm run build
 
             # 3) Para e remove container antigo (libera a porta)
-            docker stop estudamais_frontend 2>/dev/null || true
-            docker rm   estudamais_frontend 2>/dev/null || true
+            docker stop estudamais-frontend 2>/dev/null || true
+            docker rm   estudamais-frontend 2>/dev/null || true
 
             # 4) Rebuild da imagem e run
-            docker build --no-cache -t estudamais_frontend .
+            docker build --no-cache -t estudamais-frontend .
             docker run -d \
-            --name estudamais_frontend \
-            -p 8503:80 \
-            estudamais_frontend
+              --name estudamais-frontend \
+              -p 8503:80 \
+              estudamais-frontend
