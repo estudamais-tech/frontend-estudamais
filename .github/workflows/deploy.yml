@@ -23,9 +23,22 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd ~/frontend-estudamais
-            git pull origin main
-            npm install
+
+            # 1) Força o reset do código
+            git fetch origin main
+            git reset --hard origin/main
+
+            # 2) Build do frontend
+            npm ci
             npm run build
-            docker build -t frontend-estudamais .
-            docker rm -f frontend-estudamais || true
-            docker run -d --name frontend-estudamais -p 8503:80 frontend-estudamais
+
+            # 3) Para e remove container antigo (libera a porta)
+            docker stop estudamais_frontend 2>/dev/null || true
+            docker rm   estudamais_frontend 2>/dev/null || true
+
+            # 4) Rebuild da imagem e run
+            docker build --no-cache -t estudamais_frontend .
+            docker run -d \
+            --name estudamais_frontend \
+            -p 8503:80 \
+            estudamais_frontend
