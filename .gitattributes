@@ -1,0 +1,2 @@
+*.jsx --vendored
+*.js --vendored
