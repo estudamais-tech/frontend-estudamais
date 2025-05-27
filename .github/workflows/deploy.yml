@@ -1,11 +1,10 @@
-name: Deploy to VPS
+# .github/workflows/deploy.yml
+name: Build & Deploy Frontend
 
 on:
   push:
-    branches: [main]
-    paths-ignore:
-      - '**/*.md'
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -15,30 +14,31 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Connect to VPS and deploy
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Envia e executa deploy na VPS
+        uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_SSH_PORT }}
           script: |
+            set -e
+
             cd ~/frontend-estudamais
 
-            # 1) Força o reset do código
+            # 1) Sincroniza o main sem conflito
             git fetch origin main
             git reset --hard origin/main
 
-            # 2) Build do frontend
+            # 2) Gera o build no servidor
             npm ci
             npm run build
 
-            # 3) Para e remove container antigo (libera a porta)
-            docker stop estudamais-frontend 2>/dev/null || true
-            docker rm   estudamais-frontend 2>/dev/null || true
+            # 3) Para e remove o container antigo (libera a porta 8503)
+            docker-compose down
 
-            # 4) Rebuild da imagem e run
-            docker build --no-cache -t estudamais-frontend .
-            docker run -d \
-              --name estudamais-frontend \
-              -p 8503:80 \
-              estudamais-frontend
+            # 4) (Re)build e start com docker-compose
+            docker-compose up -d --build
+
+            # 5) Limpeza (opcional)
+            docker image prune -f
