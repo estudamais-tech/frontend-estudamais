@@ -15,7 +15,7 @@ function LuizaPage() {
 
     try {
       const BASE_URL = import.meta.env.PROD
-        ? ''
+        ? '/luiza'
         : 'http://localhost:8000';
         
       const resposta = await fetch(`${BASE_URL}/chat`, {
