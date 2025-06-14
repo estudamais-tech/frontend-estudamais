@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -101,7 +100,7 @@ const Header = () => {
             transition={{ delay: 0.5 }}
           >
             <Button
-              onClick={() => { /* Lógica para Acessar Plataforma */ }}
+              onClick={() => { window.location.href = '/login'; }}
               className="ml-4 cta-button-gradient text-estudamais-green-dark px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               size="lg"
             >
@@ -149,7 +148,7 @@ const Header = () => {
                 </a>
               ))}
               <Button
-                onClick={() => { /* Lógica para Acessar Plataforma */ }}
+                onClick={() => { window.location.href = '/login'; }}
                 className="w-full cta-button-gradient text-estudamais-green-dark py-3 mt-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                 size="lg"
               >

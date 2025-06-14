@@ -9,6 +9,7 @@ export default function useGithubApi(token) {
 
   useEffect(() => {
     if (!token) return;
+    console.log("🔑 Token recebido:", token);
     setLoading(true);
 
     // Função para buscar dados do usuário

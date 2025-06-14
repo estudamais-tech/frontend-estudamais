@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container text-center">
         <div className="flex justify-center items-center space-x-6 mb-6">
           <a
-            href="https://github.com/92username"
+            href="https://github.com/estudamais-tech"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub da EstudaMais.tech"

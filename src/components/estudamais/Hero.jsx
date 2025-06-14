@@ -1,10 +1,11 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BookOpen, Brain,TrendingUp } from 'lucide-react';
+import { ArrowRight, BookOpen, Brain, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
   const scrollToBenefits = () => {
     const benefitsSection = document.getElementById('benefits');
     if (benefitsSection) {
@@ -13,6 +14,9 @@ const Hero = () => {
         behavior: 'smooth'
       });
     }
+  };
+  const handleClick = () => {
+    navigate('/login');
   };
 
   return (
@@ -40,7 +44,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button
-                onClick={() => { /* Lógica para Acessar Plataforma */ }}
+                onClick={handleClick}
                 className="cta-button-gradient text-estudamais-green-dark px-10 py-7 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform"
                 size="lg"
               >
