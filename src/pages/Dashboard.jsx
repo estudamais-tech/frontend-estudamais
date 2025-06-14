@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import useGithubApi from "@/hooks/useGithubApi";
 
 function formatDate(dateStr) {

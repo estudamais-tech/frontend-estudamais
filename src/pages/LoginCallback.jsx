@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginCallback() {
   const [searchParams] = useSearchParams();
@@ -9,23 +9,21 @@ export default function LoginCallback() {
 
   useEffect(() => {
     const code = searchParams.get("code");
-    if (code) {
-      // Simula troca do code por token (mock)
-      setTimeout(async () => {
-        await login("github-oauth-mock-token");
-        navigate("/dashboard", { replace: true });
-      }, 1000);
-    } else {
+    if (!code) {
       navigate("/login", { replace: true });
+      return;
     }
-    // eslint-disable-next-line
-  }, []);
+    setTimeout(() => {
+      const fakeToken = "fake-oauth-token";
+      login(fakeToken);
+      navigate("/dashboard", { replace: true });
+    }, 1000);
+  }, [searchParams, login, navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm text-center">
-        <h1 className="text-xl font-bold mb-4">Processando login...</h1>
-        <p>Aguarde enquanto finalizamos seu login com o GitHub.</p>
+    <div className="min-h-screen flex items-center justify-center bg-[#ecf6f5]">
+      <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md flex flex-col items-center">
+        <span className="text-lg text-[#1c4145] font-semibold">Processando login...</span>
       </div>
     </div>
   );
