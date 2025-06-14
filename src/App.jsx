@@ -10,7 +10,13 @@ import Benefits from '@/components/estudamais/Benefits';
 import ChatLuiza from '@/components/estudamais/ChatLuiza';
 import Footer from '@/components/estudamais/Footer';
 import ScrollToTop from '@/components/estudamais/ScrollToTop';
-import LuizaPage from '@/pages/LuizaPage'; // Import LuizaPage
+import LuizaPage from '@/pages/LuizaPage';
+import Login from '@/pages/Login';
+import ComoCriarContaGithub from '@/pages/ComoCriarContaGithub';
+import Dashboard from '@/pages/Dashboard';
+import PrivateRoute from '@/routes/PrivateRoute';
+import { AuthProvider } from '@/context/AuthContext';
+import LoginCallback from '@/pages/LoginCallback';
 
 // Define HomePage component
 const HomePage = () => (
@@ -45,24 +51,34 @@ function App() {
   }, [toast]);
 
   return (
-    <BrowserRouter>
-      <AnimatePresence>
-        {isLoaded && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="min-h-screen flex flex-col bg-background text-foreground font-poppins"
-          >
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/luiza" element={<LuizaPage />} />
-            </Routes>
-            <Toaster />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <AnimatePresence>
+          {isLoaded && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="min-h-screen flex flex-col bg-background text-foreground font-poppins"
+            >
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/luiza" element={<LuizaPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/como-criar-conta-github" element={<ComoCriarContaGithub />} />
+                <Route path="/login/callback" element={<LoginCallback />} />
+                <Route path="/dashboard" element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                } />
+              </Routes>
+              <Toaster />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
