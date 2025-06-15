@@ -13,10 +13,12 @@ import ScrollToTop from '@/components/estudamais/ScrollToTop';
 import LuizaPage from '@/pages/LuizaPage';
 import Login from '@/pages/Login';
 import ComoCriarContaGithub from '@/pages/ComoCriarContaGithub';
-import Dashboard from '@/pages/Dashboard';
+import DashboardEstudante from '@/pages/DashboardEstudante';
 import PrivateRoute from '@/routes/PrivateRoute';
 import { AuthProvider } from '@/context/AuthContext';
 import LoginCallback from '@/pages/LoginCallback';
+import NotionTutorial from '@/pages/NotionTutorial';
+import GithubProTutorial from '@/pages/GithubProTutorial';
 
 // Define HomePage component
 const HomePage = () => (
@@ -69,9 +71,11 @@ function App() {
                 <Route path="/login/callback" element={<LoginCallback />} />
                 <Route path="/dashboard" element={
                   <PrivateRoute>
-                    <Dashboard />
+                    <DashboardEstudante />
                   </PrivateRoute>
                 } />
+                <Route path="/como-ativar-notion" element={<NotionTutorial />} />
+                <Route path="/como-ativar-github-pro" element={<GithubProTutorial />} />
               </Routes>
               <Toaster />
             </motion.div>

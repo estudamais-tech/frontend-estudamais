@@ -54,6 +54,7 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				// paleta de cores estudamais
         'estudamais-blue': '#457a8e',
         'estudamais-green-support': '#7a9a72',
         'estudamais-green-dark': '#1c4145',
