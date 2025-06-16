@@ -19,6 +19,11 @@ import { AuthProvider } from '@/context/AuthContext';
 import LoginCallback from '@/pages/LoginCallback';
 import NotionTutorial from '@/pages/NotionTutorial';
 import GithubProTutorial from '@/pages/GithubProTutorial';
+import Explore from '@/pages/Explore';
+import Aprender from '@/pages/Aprender';
+import Vagas from '@/pages/Vagas';
+import Testes from '@/pages/Testes';
+import Configuracoes from '@/pages/Configuracoes';
 
 // Define HomePage component
 const HomePage = () => (
@@ -76,6 +81,11 @@ function App() {
                 } />
                 <Route path="/como-ativar-notion" element={<NotionTutorial />} />
                 <Route path="/como-ativar-github-pro" element={<GithubProTutorial />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/aprender" element={<Aprender />} />
+                <Route path="/vagas" element={<Vagas />} />
+                <Route path="/testes" element={<Testes />} />
+                <Route path="/configuracoes" element={<Configuracoes />} />
               </Routes>
               <Toaster />
             </motion.div>
